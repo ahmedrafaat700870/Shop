@@ -1,0 +1,61 @@
+<button [routerLink]="['/Edit']">Add</button>
+
+<div class="row">
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Basic Table</h4>
+        <p class="card-description">Add class <code>.table</code></p>
+        <table class="table" id="order-listing">
+          <thead>
+            <tr>
+              <th>Count</th>
+              <th>Location Name</th>
+              <th>Tours In This Location</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let location of Locations; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>
+                <label class="badge badge-danger">{{
+                  location.locationName
+                }}</label>
+              </td>
+              <td>
+                <button
+                  class="btn btn-link"
+                  (click)="GoToTour(location.locationId)"
+                >
+                  related tour
+                </button>
+              </td>
+              <td>
+                <button
+                  type="button"
+                  style="padding: 10px 0"
+                  class="btn btn-gradient-warning btn-rounded btn-fw"
+                  (click)="Edit(location.locationId)"
+                >
+                  Edit
+                </button>
+              </td>
+              <td>
+                <button
+                  type="button"
+                  style="padding: 10px 0"
+                  class="btn btn-gradient-danger btn-rounded btn-fw"
+                  (click)="Delete(location.locationId)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

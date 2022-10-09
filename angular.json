@@ -8,7 +8,10 @@
       "schematics": {},
       "root": "",
       "sourceRoot": "src",
+
       "prefix": "app",
+
+
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -23,7 +26,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css" ,
+              {
+                "input": "src/assets/vendors/css/vendor.bundle.base.css",
+                "inject": true,
+                "bundleName": "BundleBase"
+              },
+              {
+                "input": "src/assets/css/demo_3/style.css",
+                "inject": true ,
+                "bundleName": "mainStyle"
+
+              }
             ],
             "scripts": []
           },
@@ -97,5 +111,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "8154d4cd-c9de-4bb6-9e9b-0435906f1836"
   }
 }

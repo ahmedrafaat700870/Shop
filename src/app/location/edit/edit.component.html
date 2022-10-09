@@ -1,0 +1,46 @@
+<div class="col-md-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Default form</h4>
+      <p class="card-description">Basic form layout</p>
+      <form
+        [formGroup]="LocationForm"
+        (ngSubmit)="LocationSubmit()"
+        class="forms-sample"
+      >
+        <div class="form-group">
+          <label for="exampleInputUsername1">Location Name</label>
+          <input
+            formControlName="LocationName"
+            type="text"
+            class="form-control"
+            id="exampleInputUsername1"
+            placeholder="Location Name"
+          />
+        </div>
+        <p
+          style="color: red"
+          *ngIf="!GetFormControl()?.valid && GetFormControl()?.touched"
+        >
+          Error
+        </p>
+        <button
+          [disabled]="!LocationForm.valid"
+          *ngIf="pageState"
+          type="submit"
+          class="btn btn-gradient-primary me-2"
+        >
+          Update
+        </button>
+        <button
+          [disabled]="!LocationForm.valid"
+          *ngIf="!pageState"
+          type="submit"
+          class="btn btn-gradient-primary me-2"
+        >
+          Edit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
